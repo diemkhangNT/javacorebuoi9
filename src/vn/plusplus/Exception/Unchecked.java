@@ -6,7 +6,8 @@ public class Unchecked {
     public static void main(String[] args) {
         /*int arr[] = {12, 3, 40, 6};
         System.out.println(arr[5]);
-        // Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5*/
+        // Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
+        */
         while(true){
             Scanner scanner = new Scanner(System.in);
             System.out.println("Vui lòng nhập a: ");

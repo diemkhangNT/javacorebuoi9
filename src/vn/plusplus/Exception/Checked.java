@@ -8,12 +8,12 @@ public class Checked {
     public static void main(String[] args) {
         //String content = Files.readAllBytes(new File("C:\\Users\\Administrator\\Desktop\\diemkhang\\test reader\\introduce.txt").toPath());
         // Fix exception
-        /*byte[] content = null;
+        byte[] content = null;
         try {
             content = Files.readAllBytes(new File("C:\\Users\\Administrator\\Desktop\\diemkhang\\test reader\\introduce.txt").toPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(new String(content));*/
+        System.out.println(new String(content));
     }
 }

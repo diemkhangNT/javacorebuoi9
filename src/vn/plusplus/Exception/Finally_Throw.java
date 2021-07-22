@@ -5,7 +5,7 @@ public class Finally_Throw {
         System.out.println("Before call phepChia func.");
         int ret;
         try{
-            ret = phepChia(23, 0);
+            ret = phepChia(23, 9);
             System.out.println("Result = " + ret);
         }catch (ArithmeticException e){
             System.out.println("Có lỗi, dừng chương trình!");
