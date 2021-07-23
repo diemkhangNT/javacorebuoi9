@@ -1,16 +1,6 @@
 package vn.plusplus.Activity91;
 
 public class User {
-   /* 1. Viết lớp User (Người dùng) gồm có:
-            1.1 Các thuộc tính:
-            - int id; (ID người dùng)
-            - String username; (Tên đăng nhập)
-            - String password; (Mật khẩu)
-            - String displayName; (Tên hiển thị)
-            - String email; (Địa chỉ email)
-            1.2 Các phương thức:
-            - Khởi tạo ko đối và có đối số.
-            - Getters/setters*/
     private int id;
     private String username;
     private String password;
@@ -63,5 +53,16 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
