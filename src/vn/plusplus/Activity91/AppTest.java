@@ -6,7 +6,7 @@ public class AppTest {
    public static void main(String[] args) {
        Scanner scanner= new Scanner(System.in);
        UserManagement userManagement = new UserManagement();
-       System.out.println("Nhap vao ten dang nhap muon tim: ");
+       System.out.println("Nhập vào username muốn tìm: ");
        String username = scanner.nextLine();
        userManagement.findUserByUsername(username);
        System.out.println("\nLogin: ");

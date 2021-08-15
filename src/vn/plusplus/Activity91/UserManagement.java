@@ -32,7 +32,7 @@ public class UserManagement {
             }
             String usname;
             do{
-                byte flag=0;
+                byte flag = 0;
                 while (true){
                     System.out.print("\tTên đăng nhập: ");
                     usname = scanner.nextLine();
