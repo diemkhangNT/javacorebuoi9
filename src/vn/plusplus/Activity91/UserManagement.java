@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserManagement {
+public class UserManagement{
     private int totalUser;//(Tổng số user cần quản lý)
     private User[] users; //(Mảng danh sách các user)
 //    public UserManagement(int totalUser, User[] users) {
@@ -96,7 +96,7 @@ public class UserManagement {
                 System.out.println(users[i].toString());
             }else j++;
         }
-        if(j==users.length) System.out.println("null\n");
+        if(j==users.length) System.out.println("null");
         return username;
     }
     public void login(String username){
