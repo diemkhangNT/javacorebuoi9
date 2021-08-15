@@ -16,17 +16,30 @@ public class UserManagement {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập tổng số user cần quản lí: ");
         totalUser = scanner.nextInt();
+        scanner.nextLine();
         users = new User[totalUser];
         for(int i=0;i<users.length;i++){
             System.out.println("User "+(i+1));
-            System.out.print("\tID người dùng: ");
-            int id = scanner.nextInt();
-            scanner.nextLine();
+            int id = 0;
+            while(true){
+                try {
+                    System.out.print("\tID người dùng: ");
+                    id = Integer.parseInt(scanner.nextLine());
+                    break;
+                }catch (Exception e){
+                    System.out.println("Invalid! Please enter again");
+                }
+            }
             String usname;
             do{
                 byte flag=0;
-                System.out.print("\tTên đăng nhập: ");
-                usname = scanner.nextLine();
+                while (true){
+                    System.out.print("\tTên đăng nhập: ");
+                    usname = scanner.nextLine();
+                    if(!usname.trim().equals("")){
+                        break;
+                    }else System.out.println("Username must not empty!");
+                }
                 for(int j=i-1;j>=0;j--){
                     if(usname.equals(users[j].getUsername())){
                         System.out.println("Tên đăng nhập đã tồn tại, vui lòng nhập lại. ");
@@ -38,12 +51,38 @@ public class UserManagement {
                     continue;
                 }else break;
             }while (true);
-            System.out.print("\tPassword: ");
-            String password = scanner.nextLine();
-            System.out.print("\tTên hiển thị: ");
-            String displayName = scanner.nextLine();
-            System.out.print("\tĐịa chỉ email: ");
-            String email = scanner.nextLine();
+            String password;
+            while (true){
+                System.out.print("\tPassword: ");
+                password = scanner.nextLine();
+                if(!password.trim().equals("")){
+                    break;
+                }else System.out.println("Password must not empty!");
+            }
+            String displayName;
+            while (true){
+                System.out.print("\tTên hiển thị: ");
+                displayName = scanner.nextLine();
+                if(!displayName.trim().equals("")){
+                    break;
+                }else System.out.println("DisplayName must not empty!");
+            }
+            String email;
+            String EMAIL_PATTERN =
+                    "^[a-zA-Z][\\w-]+@([\\w]+\\.[\\w]+|[\\w]+\\.[\\w]{2,}\\.[\\w]{2,})$";
+            while (true){
+                System.out.print("\tĐịa chỉ email: ");
+                email = scanner.nextLine();
+                boolean flag = Pattern.matches(EMAIL_PATTERN,email);
+                if(!email.trim().equals("")&&flag){
+                    break;
+                }else if(email.trim().equals("")){
+                    System.out.println("Email must not empty!");
+                }else if(!flag){
+                    System.out.println("Email is invalid! Please enter again!");
+                }
+            }
+
             users[i] = new User(id,usname,password,displayName,email);
         }
         for(User us : users){
@@ -57,7 +96,7 @@ public class UserManagement {
                 System.out.println(users[i].toString());
             }else j++;
         }
-        if(j==users.length) System.out.println("null");
+        if(j==users.length) System.out.println("null\n");
         return username;
     }
     public void login(String username){
@@ -73,12 +112,6 @@ public class UserManagement {
                 }else System.out.println("Mật khẩu không hợp lệ!");;
             }else j++;
         }
-        if(j==users.length){
-            try{
-                Integer.parseInt("abc");
-            }catch (Exception e){
-                System.out.println("Người dùng không tồn tại!");
-            }
-        }
+        if(j==users.length) System.out.println("Người dùng không tồn tại!");
     }
 }

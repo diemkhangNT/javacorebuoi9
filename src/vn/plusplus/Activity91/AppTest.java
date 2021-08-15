@@ -9,7 +9,7 @@ public class AppTest {
        System.out.println("Nhap vao ten dang nhap muon tim: ");
        String username = scanner.nextLine();
        userManagement.findUserByUsername(username);
-       System.out.println("Login: ");
+       System.out.println("\nLogin: ");
        System.out.print("\tUsername: ");
        username = scanner.nextLine();
        userManagement.login(username);
